@@ -17,7 +17,9 @@ int main() {
     } else {
         printf("Unknown command: %s\n", command);
     }
-
+    if(strcmp(command, "cdonut" == 0)
+        cdonut();
+    else
     return 0;
 }
 
