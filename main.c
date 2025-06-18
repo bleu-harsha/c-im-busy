@@ -2,7 +2,11 @@
 #include <math.h>
 #include <stdint.h>
 #include <string.h>
+#ifdef _WIN32
+#include <windows.h>
+#else
 #include <unistd.h>
+#endif
 
 // Declare functions before using them
 void printhelp(int reason);
@@ -17,15 +21,22 @@ int main() {
     } else {
         printf("Unknown command: %s\n", command);
     }
-    if(strcmp(command, "cdonut" == 0)
-        cdonut();
-    else
+  if (strcmp(command, "cdonut") == 0)
+    cdonut();
+  else
     return 0;
 }
 
 // Print help messages
 void printhelp(int reason) {
-    if (reason == 0) {
+    //reason 0 displays the def command's help
+    //reason 1 displays cmatrix command's help
+    //reason 2 displays cdonut command's help
+    //reason 3 displays pattern-cool command's help
+    //reason 4 displays random command's help
+    //reason 5 displays ascii-anim command's help
+
+  if (reason == 0) {
         printf("\033[1;32m"); // Green
         printf(" _________     .__ /\\          ___.                           \n");
         printf(" \\_   ___ \\    |__|\\(_____     \\_ |__   __ __  ______ ___.__. \n");
@@ -44,6 +55,77 @@ void printhelp(int reason) {
         printf("• ascii-anim      - displays ascii animations from https://ascii.co.uk/animated\n");
         printf("\033[1;33mUse: cimbusy <command> help for details.\033[0m\n");
     }
+  else if (reason == 1){
+     printf("\033[1;36m");
+     printf("  ______     __    __     ______     ______   ______     __     __  __    \n");
+     printf(" /\\  ___\\   /\\ \"-./  \\   /\\  __ \\   /\\__  _\\ /\\  == \\   /\\ \\   /\\_\\_\\_\\   \n");
+     printf(" \\ \\ \\____  \\ \\ \\-./\\ \\  \\ \\  __ \\  \\/_\\ \\ \\/ \\ \\  __<   \\ \\ \\  \\/_\\_\\/\\_  \n");
+     printf("  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\    \\ \\_\\  \\ \\_\\ \\_\\  \\_\\   /\\_\\/\\_\\ \n");
+     printf("   \\/_____/   \\/_/  \\/_/   \\/_/\\/_/     \\/_/   \\/_/ /_/   \\/_/   \\/_/\\/_/\n");
+    printf("\033[0m\n");
+    prtinf("\033[1;36mcommands:");
+    printf("\033[0m <content to later add>");
+    printf("\033[1;33flags:");
+    printf("\033[0m <content to later add>"); 
+           
+  }
+  else if (reason == 2){
+    printf("\033[1;35m  ,gggg,                                                          \n");
+    printf(",88\"\"\"Y8b,        8I                                         I8   \n");
+    printf("d8\"     `Y8        8I                                         I8   \n");
+    printf("d8'   8b  d8        8I                                      88888888\n");
+    printf(",8I    \"Y88P'        8I                                         I8   \n");
+    printf("I8'            ,gggg,8I    ,ggggg,    ,ggg,,ggg,   gg      gg   I8   \n");
+    printf("d8            dP\"  \"Y8I   dP\"  \"Y8ggg,8\" \"8P\" \"8,  I8      8I   I8   \n");
+    printf("Y8,          i8'    ,8I  i8'    ,8I  I8   8I   8I  I8,    ,8I  ,I8,  \n");
+    printf("`Yba,,_____,,d8,   ,d8b,,d8,   ,d8' ,dP   8I   Yb,,d8b,  ,d8b,,d88b, \n");
+    printf("  `\"Y8888888P\"Y8888P\"`Y8P\"Y8888P\"   8P'   8I   `Y88P'\"Y88P\"`Y88P\"\"Y8P\n");
+    printf("\033[0m\n");
+    prtinf("\033[1;36mcommands:");
+    printf("\033[0m <content to later add>");
+    printf("\033[1;33flags:");
+    printf("\033[0m <content to later add>"); 
+           
+  }
+   else if (reason == 3){
+    printf("\033[1;34m\n _____  ____  _____  _____  ____ _____  __  _  ____  ____  ____  _    \n");
+    printf("| ()_)/ () \\|_   _||_   _|| ===|| () )|  \\| |/ (__`/ () \\ / () \\| |__ \n");
+    printf("|_|  /__/\\__\\ |_|    |_|  |____||_|\\_\\|_|\\__|\\____)\\____/\\____/|____|\n\033[0m\n");
+    prtinf("\033[1;36mcommands:");
+    printf("\033[0m <content to later add>");
+    printf("\033[1;33flags:");
+    printf("\033[0m <content to later add>"); 
+           
+  }
+  
+   else if (reason == 4){
+    printf("\033[1;36m\n _____   ____    ____   _  _____   _____  ____    __  \n");
+    printf("|     | |    \\  |    \\ | ||     \\ /     \\|    \\  /  | \n");
+    printf("|     \\ |     \\ |     \\| ||      \\|     ||     \\ /   | \n");
+    printf("|__|\\__\\|__|\\__\\|__/\\____||______\\\\_____/|__/\\__/|__|\n");
+    printf("\033[0m");
+    prtinf("\033[1;36mcommands:");
+    printf("\033[0m <content to later add>");
+    printf("\033[1;33flags:");
+    printf("\033[0m <content to later add>"); 
+           
+  }
+   else if (reason == 5){
+    printf("\033[1;36m\n");
+    printf("     ___           _______.  ______  __   __            ___      .__   __.  __  .___  ___. \n");
+    printf("    /   \\         /       | /      ||  | |  |          /   \\     |  \\ |  | |  | |   \\/   | \n");
+    printf("   /  ^  \\       |   (----`|  ,----'|  | |  |  ______ /  ^  \\    |   \\\\|  | |  | |  \\  /  | \n");
+    printf("  /  /_\\  \\       \\   \\    |  |     |  | |  | |______/  /_\\  \\   |  . `  | |  | |  |\\/|  | \n");
+    printf(" /  _____  \\  .----)   |   |  `----.|  | |  |       /  _____  \\  |  |\\   | |  | |  |  |  | \n");
+    printf("/__/     \\\\__\\ |_______/     \\______||__| |__|      /__/     \\\\__\\ |__| \\__| |__| |__|  |__| \n");
+    printf("\033[0m\n");
+    prtinf("asci-anim ascii art");
+    prtinf("\033[1;36mcommands:");
+    printf("\033[0m <content to later add>");
+    printf("\033[1;33flags:");
+    printf("\033[0m <content to later add>"); 
+           
+  }
 }
 
 // Donut animation
@@ -78,7 +160,11 @@ int cdonut() {
         }
         A += 0.00004;
         B += 0.00002;
+        #ifdef _WIN32
+        Sleep(30);
+        #else
         usleep(30000);
+        #endif
     }
     return 0;
 }
