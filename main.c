@@ -8,6 +8,13 @@
 #include <unistd.h>
 #endif
 
+const char *COLOR_RESET = "\033[0m";
+const char *COLOR_GREEN = "\033[1;32m";
+const char *COLOR_YELLOW = "\033[1;33m";
+const char *COLOR_CYAN = "\033[1;36m";
+const char *COLOR_MAGENTA = "\033[1;35m";
+const char *COLOR_BLUE = "\033[1;34m";
+
 // Declare functions before using them
 void printhelp(int reason);
 int cdonut();
@@ -63,10 +70,17 @@ void printhelp(int reason) {
      printf("  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\    \\ \\_\\  \\ \\_\\ \\_\\  \\_\\   /\\_\\/\\_\\ \n");
      printf("   \\/_____/   \\/_/  \\/_/   \\/_/\\/_/     \\/_/   \\/_/ /_/   \\/_/   \\/_/\\/_/\n");
     printf("\033[0m\n");
-    prtinf("\033[1;36mcommands:");
-    printf("\033[0m <content to later add>");
-    printf("\033[1;33flags:");
-    printf("\033[0m <content to later add>"); 
+    prtinf("\033[1;36m);
+    printf("Commands:");
+    printf("\033[0m");
+    printf("• speed            adjusts the speed of the characters going down,its what it says.");
+    printf("• color            modify the output color, you can either your terminal color,specify a hex value");
+    printf("• japanese         mimics the original matrix like the one in the movie ");
+    printf("• rainbow          samething but with rainbow color palete");
+    printf("\n")
+    printf("\033[1;36mFlags:");
+    printf("\033[0m");
+    printf("• -slow            usable only with the \033[1;31m speed command"); 
            
   }
   else if (reason == 2){
