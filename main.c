@@ -1,3 +1,5 @@
+/*
+*/
 #include <stdio.h>
 #include <math.h>
 #include <stdint.h>
@@ -35,7 +37,7 @@ int main() {
 }
 
 // Print help messages
-void printhelp(int reason) {
+void printhelp(int reason) { 
     //reason 0 displays the def command's help
     //reason 1 displays cmatrix command's help
     //reason 2 displays cdonut command's help
@@ -69,18 +71,19 @@ void printhelp(int reason) {
      printf(" \\ \\ \\____  \\ \\ \\-./\\ \\  \\ \\  __ \\  \\/_\\ \\ \\/ \\ \\  __<   \\ \\ \\  \\/_\\_\\/\\_  \n");
      printf("  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\    \\ \\_\\  \\ \\_\\ \\_\\  \\_\\   /\\_\\/\\_\\ \n");
      printf("   \\/_____/   \\/_/  \\/_/   \\/_/\\/_/     \\/_/   \\/_/ /_/   \\/_/   \\/_/\\/_/\n");
-    printf("\033[0m\n");
-    prtinf("\033[1;36m);
-    printf("Commands:");
-    printf("\033[0m");
-    printf("• speed            adjusts the speed of the characters going down,its what it says.");
-    printf("• color            modify the output color, you can either your terminal color,specify a hex value");
-    printf("• japanese         mimics the original matrix like the one in the movie ");
-    printf("• rainbow          samething but with rainbow color palete");
-    printf("\n")
-    printf("\033[1;36mFlags:");
-    printf("\033[0m");
-    printf("• -slow            usable only with the \033[1;31m speed command"); 
+     printf("\033[0m\n");
+     printf("\033[1;36m");
+     printf("Commands:");
+     printf("\033[0m");
+     printf("• speed            adjusts the speed of the characters going down,its what it says.");
+     printf("• color            Modify the output color. You can use your terminal color or specify a hex value.\n");
+     printf("• japanese         Mimics the original Matrix style like in the movie.\n");
+     printf("• rainbow          Same thing but with a rainbow color palette.\n");
+     printf("\n");
+     printf("\033[1;36m" );
+     printf("Flags:");
+     printf("\033[0m");
+     printf("• -slow            usable only with the \033[1;31m speed command"); 
            
   }
   else if (reason == 2){
@@ -95,7 +98,7 @@ void printhelp(int reason) {
     printf("`Yba,,_____,,d8,   ,d8b,,d8,   ,d8' ,dP   8I   Yb,,d8b,  ,d8b,,d88b, \n");
     printf("  `\"Y8888888P\"Y8888P\"`Y8P\"Y8888P\"   8P'   8I   `Y88P'\"Y88P\"`Y88P\"\"Y8P\n");
     printf("\033[0m\n");
-    prtinf("\033[1;36mcommands:");
+    printf("\033[1;36mcommands:");
     printf("\033[0m <content to later add>");
     printf("\033[1;33flags:");
     printf("\033[0m <content to later add>"); 
@@ -105,7 +108,7 @@ void printhelp(int reason) {
     printf("\033[1;34m\n _____  ____  _____  _____  ____ _____  __  _  ____  ____  ____  _    \n");
     printf("| ()_)/ () \\|_   _||_   _|| ===|| () )|  \\| |/ (__`/ () \\ / () \\| |__ \n");
     printf("|_|  /__/\\__\\ |_|    |_|  |____||_|\\_\\|_|\\__|\\____)\\____/\\____/|____|\n\033[0m\n");
-    prtinf("\033[1;36mcommands:");
+    printf("\033[1;36mcommands:");
     printf("\033[0m <content to later add>");
     printf("\033[1;33flags:");
     printf("\033[0m <content to later add>"); 
@@ -118,7 +121,7 @@ void printhelp(int reason) {
     printf("|     \\ |     \\ |     \\| ||      \\|     ||     \\ /   | \n");
     printf("|__|\\__\\|__|\\__\\|__/\\____||______\\\\_____/|__/\\__/|__|\n");
     printf("\033[0m");
-    prtinf("\033[1;36mcommands:");
+    printf("\033[1;36mcommands:");
     printf("\033[0m <content to later add>");
     printf("\033[1;33flags:");
     printf("\033[0m <content to later add>"); 
@@ -133,8 +136,8 @@ void printhelp(int reason) {
     printf(" /  _____  \\  .----)   |   |  `----.|  | |  |       /  _____  \\  |  |\\   | |  | |  |  |  | \n");
     printf("/__/     \\\\__\\ |_______/     \\______||__| |__|      /__/     \\\\__\\ |__| \\__| |__| |__|  |__| \n");
     printf("\033[0m\n");
-    prtinf("asci-anim ascii art");
-    prtinf("\033[1;36mcommands:");
+    printf("asci-anim ascii art");
+    printf("\033[1;36mcommands:");
     printf("\033[0m <content to later add>");
     printf("\033[1;33flags:");
     printf("\033[0m <content to later add>"); 
@@ -182,3 +185,4 @@ int cdonut() {
     }
     return 0;
 }
+
