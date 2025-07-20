@@ -1,5 +1,16 @@
+
 /*
+ _________     .__ /\          ___.                           
+ \_   ___ \    |__|\(_____     \_ |__   __ __  ______ ___.__. 
+ /    \  \/    |  | /     \     | __ \ |  |  \/  ___/<   |  | 
+ \     \____   |  ||  Y Y  \    | \_\ \|  |  /\___ \  \___  | 
+  \______  /   |__||__|_|  /    |___  /|____//____  > / ____| 
+         \/              \/         \/            \/  \/     
+
+ C-im-busy: source code for a terminal app that sets the scene.
+ A vibe. A mood. A whole cinematic presence.
 */
+
 #include <stdio.h>
 #include <math.h>
 #include <stdint.h>
@@ -41,7 +52,6 @@ void printhelp(int reason) {
     //reason 0 displays the def command's help
     //reason 1 displays cmatrix command's help
     //reason 2 displays cdonut command's help
-    //reason 3 displays pattern-cool command's help
     //reason 4 displays random command's help
     //reason 5 displays ascii-anim command's help
 
@@ -56,36 +66,45 @@ void printhelp(int reason) {
         printf("\033[0m");
 
         printf("\033[1;33mAvailable commands:\033[0m\n");
-        printf("• help            - displays this message and exits\n");
-        printf("• cmatrix         - displays the classic cmatrix\n");
-        printf("• cdonut          - displays the revolving donut\n");
-        printf("• pattern-cool    - displays weird ascii patterns\n");
-        printf("• random          - chooses a random command and executes\n");
-        printf("• ascii-anim      - displays ascii animations from https://ascii.co.uk/animated\n");
-        printf("\033[1;33mUse: cimbusy <command> help for details.\033[0m\n");
+        printf("• help                       displays this message\n");
+        printf("• cmatrix                    displays the classic cmatrix\n");
+        printf("• cdonut                     displays the rotating donut\n");
+        printf("• random                     chooses a random command and executes\n");
+        printf("• ascii-anim                 displays ascii animations from ascii.co.uk\n");
+        printf("•")
+        printf("\033[1;33mUse: cimbusy <command> help to know more off the commands and usage\033[0m\n");
     }
-  else if (reason == 1){
-     printf("\033[1;36m");
-     printf("  ______     __    __     ______     ______   ______     __     __  __    \n");
-     printf(" /\\  ___\\   /\\ \"-./  \\   /\\  __ \\   /\\__  _\\ /\\  == \\   /\\ \\   /\\_\\_\\_\\   \n");
-     printf(" \\ \\ \\____  \\ \\ \\-./\\ \\  \\ \\  __ \\  \\/_\\ \\ \\/ \\ \\  __<   \\ \\ \\  \\/_\\_\\/\\_  \n");
-     printf("  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\    \\ \\_\\  \\ \\_\\ \\_\\  \\_\\   /\\_\\/\\_\\ \n");
-     printf("   \\/_____/   \\/_/  \\/_/   \\/_/\\/_/     \\/_/   \\/_/ /_/   \\/_/   \\/_/\\/_/\n");
-     printf("\033[0m\n");
-     printf("\033[1;36m");
-     printf("Commands:");
-     printf("\033[0m");
-     printf("• speed            adjusts the speed of the characters going down,its what it says.");
-     printf("• color            Modify the output color. You can use your terminal color or specify a hex value.\n");
-     printf("• japanese         Mimics the original Matrix style like in the movie.\n");
-     printf("• rainbow          Same thing but with a rainbow color palette.\n");
-     printf("\n");
-     printf("\033[1;36m" );
-     printf("Flags:");
-     printf("\033[0m");
-     printf("• -slow            usable only with the \033[1;31m speed command"); 
-           
-  }
+
+
+else if (reason == 1){
+    printf("\033[1;36m");
+    printf("  ______     __    __     ______     ______   ______     __     __  __    \n");
+    printf(" /\\  ___\\   /\\ \"-./  \\   /\\  __ \\   /\\__  _\\ /\\  == \\   /\\ \\   /\\_\\_\\_\\   \n");
+    printf(" \\ \\ \\____  \\ \\ \\-./\\ \\  \\ \\  __ \\  \\/_\\ \\ \\/ \\ \\  __<   \\ \\ \\  \\/_\\_\\/\\_  \n");
+    printf("  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\    \\ \\_\\  \\ \\_\\ \\_\\  \\_\\   /\\_\\/\\_\\ \n");
+    printf("   \\/_____/   \\/_/  \\/_/   \\/_/\\/_/     \\/_/   \\/_/ /_/   \\/_/   \\/_/\\/_/\n");
+    printf("\033[0m\n");
+
+    printf("\033[1;36mCommands:\033[0m\n");
+    printf("• speed            Adjust the speed of the characters.\n");
+    printf("• color            Set output color (terminal color name or hex code).\n");
+    printf("• japanese         Enables original Matrix-style katakana characters.\n");
+    printf("• rainbow          Enable rainbow color cycling mode.\n");
+    printf("• bold             Use bold characters in the output.\n");
+    printf("• reverse          Characters go up instead of down (reverse scroll).\n");
+    printf("• screensaver      Launch in fullscreen / screensaver mode.\n");
+    printf("• lock             Lock terminal with Matrix effect (like a screensaver).\n");
+
+    printf("\n\033[1;36mFlags (use with commands above):\033[0m\n");
+    printf("• -slow            Slow character fall speed.\n");
+    printf("• -mid             Medium speed (default).\n");
+    printf("• -fast            Fast scroll speed.\n");
+    printf("• -nobold          Force disable bold characters.\n");
+    printf("• -color <value>   Specify color. e.g., green, red, blue, or hex like #00ff00.\n");
+    printf("• -curses          Use ncurses compatibility mode.\n");
+    printf("• -x, -y <int>     Set screen width/height manually (if needed).\n");
+    printf("• -fps <value>     Set frames per second (custom framerate).\n");
+}
   else if (reason == 2){
     printf("\033[1;35m  ,gggg,                                                          \n");
     printf(",88\"\"\"Y8b,        8I                                         I8   \n");
@@ -99,90 +118,17 @@ void printhelp(int reason) {
     printf("  `\"Y8888888P\"Y8888P\"`Y8P\"Y8888P\"   8P'   8I   `Y88P'\"Y88P\"`Y88P\"\"Y8P\n");
     printf("\033[0m\n");
     printf("\033[1;36mcommands:");
-    printf("\033[0m <content to later add>");
-    printf("\033[1;33flags:");
-    printf("\033[0m <content to later add>"); 
-           
-  }
-   else if (reason == 3){
-    printf("\033[1;34m\n _____  ____  _____  _____  ____ _____  __  _  ____  ____  ____  _    \n");
-    printf("| ()_)/ () \\|_   _||_   _|| ===|| () )|  \\| |/ (__`/ () \\ / () \\| |__ \n");
-    printf("|_|  /__/\\__\\ |_|    |_|  |____||_|\\_\\|_|\\__|\\____)\\____/\\____/|____|\n\033[0m\n");
-    printf("\033[1;36mcommands:");
-    printf("\033[0m <content to later add>");
-    printf("\033[1;33flags:");
-    printf("\033[0m <content to later add>"); 
-           
-  }
-  
-   else if (reason == 4){
-    printf("\033[1;36m\n _____   ____    ____   _  _____   _____  ____    __  \n");
-    printf("|     | |    \\  |    \\ | ||     \\ /     \\|    \\  /  | \n");
-    printf("|     \\ |     \\ |     \\| ||      \\|     ||     \\ /   | \n");
-    printf("|__|\\__\\|__|\\__\\|__/\\____||______\\\\_____/|__/\\__/|__|\n");
     printf("\033[0m");
-    printf("\033[1;36mcommands:");
-    printf("\033[0m <content to later add>");
+    printf("• speed       it is what is says");
+    printf("• color       just type a color till it works.to use hex values with this command use -hex <value>");
+    printf("• wierd       its bascially random with steroids");
+    printf("• random      skibdi skidbi\n");
+    printf("• img         just shows 1 frame of the c-donut and stops");
     printf("\033[1;33flags:");
-    printf("\033[0m <content to later add>"); 
-           
-  }
-   else if (reason == 5){
-    printf("\033[1;36m\n");
-    printf("     ___           _______.  ______  __   __            ___      .__   __.  __  .___  ___. \n");
-    printf("    /   \\         /       | /      ||  | |  |          /   \\     |  \\ |  | |  | |   \\/   | \n");
-    printf("   /  ^  \\       |   (----`|  ,----'|  | |  |  ______ /  ^  \\    |   \\\\|  | |  | |  \\  /  | \n");
-    printf("  /  /_\\  \\       \\   \\    |  |     |  | |  | |______/  /_\\  \\   |  . `  | |  | |  |\\/|  | \n");
-    printf(" /  _____  \\  .----)   |   |  `----.|  | |  |       /  _____  \\  |  |\\   | |  | |  |  |  | \n");
-    printf("/__/     \\\\__\\ |_______/     \\______||__| |__|      /__/     \\\\__\\ |__| \\__| |__| |__|  |__| \n");
-    printf("\033[0m\n");
-    printf("asci-anim ascii art");
-    printf("\033[1;36mcommands:");
-    printf("\033[0m <content to later add>");
-    printf("\033[1;33flags:");
-    printf("\033[0m <content to later add>"); 
-           
+    printf("\033[0m");
+    printf("• -slow       usable only with the speed command");
+    printf("• -mid        usable with speed command btw");
+    printf("• -fast       again,its only used with the speed command");
+    printf("• -hex        helps the color command use hex values as input. requires an input ex: #b1b999");       
   }
 }
-
-// Donut animation
-int cdonut() {
-    float A = 0, B = 0;
-    float i, j;
-    int k;
-    float z[1760];
-    char b[1760];
-    printf("\x1b[2J");
-    for (;;) {
-        memset(b, 32, 1760);
-        memset(z, 0, 7040);
-        for (j = 0; j < 6.28; j += 0.07) {
-            for (i = 0; i < 6.28; i += 0.02) {
-                float c = sin(i), d = cos(j), e = sin(A), f = sin(j);
-                float g = cos(A), h = d + 2, D = 1 / (c * h * e + f * g + 5);
-                float l = cos(i), m = cos(B), n = sin(B), t = c * h * g - f * e;
-                int x = 40 + 30 * D * (l * h * m - t * n);
-                int y = 12 + 15 * D * (l * h * n + t * m);
-                int o = x + 80 * y;
-                int N = 8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n);
-                if (22 > y && y > 0 && x > 0 && 80 > x && D > z[o]) {
-                    z[o] = D;
-                    b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
-                }
-            }
-        }
-        printf("\x1b[H");
-        for (k = 0; k < 1760; k++) {
-            putchar(k % 80 ? b[k] : 10);
-        }
-        A += 0.00004;
-        B += 0.00002;
-        #ifdef _WIN32
-        Sleep(30);
-        #else
-        usleep(30000);
-        #endif
-    }
-    return 0;
-}
-
